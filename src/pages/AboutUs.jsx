@@ -16,7 +16,7 @@ import wie from "../assets/wie.png";
 // ======================================================
 // SOCIETY CONFIG
 // accent -> tiny status dot only (kept deliberately restrained)
-// pos    -> lg desktop placement (mobile stacks)
+// pos    -> responsive staggered flow (no card overlap)
 // ======================================================
 const societies = [
   {
@@ -25,7 +25,7 @@ const societies = [
     logo: cs,
     blurb: "Innovation in computing, AI, and software development.",
     accent: "#3b82f6",
-    pos: "lg:absolute lg:top-0 lg:right-8 lg:w-72",
+    pos: "w-full max-w-xl lg:max-w-md lg:self-end lg:mr-2",
     delay: 0.15,
     badgeClass: "h-16 px-4 bg-slate-900/90 border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.15)]",
     imgClass: "h-10 sm:h-11 w-auto max-w-[130px]",
@@ -36,7 +36,7 @@ const societies = [
     logo: mtts,
     blurb: "The spectrum of RF and microwave engineering.",
     accent: "#8b5cf6",
-    pos: "lg:absolute lg:top-[36%] lg:left-0 lg:w-72 lg:z-20",
+    pos: "w-full max-w-xl lg:max-w-md lg:self-start lg:ml-2",
     delay: 0.3,
     badgeClass: "h-16 px-4 bg-slate-900/90 border-purple-500/30 shadow-[0_0_20px_rgba(139,92,246,0.15)]",
     imgClass: "h-11 sm:h-12 w-auto max-w-[90px]",
@@ -47,10 +47,10 @@ const societies = [
     logo: wie,
     blurb: "Empowering women in technology and research.",
     accent: "#ec4899",
-    pos: "lg:absolute lg:bottom-6 lg:right-16 lg:w-72",
+    pos: "w-full max-w-xl lg:max-w-md lg:self-end lg:mr-4",
     delay: 0.45,
-    badgeClass: "h-16 px-4 bg-white/95 border-white shadow-lg shadow-pink-500/20",
-    imgClass: "h-11 sm:h-12 w-auto max-w-[90px] drop-shadow-sm",
+    badgeClass: "h-16 px-5 bg-white border border-pink-300/50 shadow-lg shadow-pink-500/20",
+    imgClass: "h-11 sm:h-12 w-auto max-w-[95px] object-contain",
   },
 ];
 
@@ -85,7 +85,7 @@ function ChapterCard({ society }) {
 
   return (
     <motion.div
-      className={`w-full ${pos}`}
+      className={pos}
       style={{ perspective: 1200 }}
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -229,7 +229,7 @@ export default function AboutUs() {
           </motion.div>
 
           {/* ==================== CHAPTER CARDS ==================== */}
-          <div className="relative mt-10 flex flex-col gap-6 lg:mt-0 lg:block lg:h-[600px]">
+          <div className="relative mt-10 flex flex-col gap-5 sm:gap-6 lg:mt-0 justify-center">
             {societies.map((society) => (
               <ChapterCard key={society.key} society={society} />
             ))}
