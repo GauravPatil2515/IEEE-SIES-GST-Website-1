@@ -1,19 +1,17 @@
 import ScrollManager from "./components/ScrollManager";
 import LoadingScreen from "./components/LoadingScreen";
 import React, { lazy, Suspense, useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   createBrowserRouter,
   RouterProvider,
+  Navigate,
 } from "react-router-dom";
 import "./index.css";
-import "./custom.css";
 
 import { teamLoader } from "./loaders/teamLoader";
-import { teamLoader as juniorCouncilLoader } from "./loaders/juniorCouncilLoader";
-import SplashCursor from "./components/Animations/SplashCursor/SplashCursor";
 
 const Teams = lazy(() => import("./components/Teams"));
-const JuniorCouncil = lazy(() => import("./pages/JuniorCouncil"));
 
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Events = lazy(() => import("./pages/Events"));
@@ -39,7 +37,6 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <Layout>
-        {/* <SplashCursor /> */}
         <Hero />
         <AboutUs />
         <Events />
@@ -61,12 +58,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/junior-council",
-    element: (
-      <Layout>
-        <JuniorCouncil />
-      </Layout>
-    ),
-    loader: juniorCouncilLoader,
+    element: <Navigate to="/team" replace />,
   },
 ]);
 
@@ -76,16 +68,28 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2800);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {loading && <LoadingScreen />}
+      <AnimatePresence mode="wait">
+        {loading && (
+          <motion.div
+            key="loading-screen"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="fixed inset-0 z-[9999]"
+          >
+            <LoadingScreen />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <Suspense fallback={null}>
-        {!loading && <RouterProvider router={router} />}
+        <RouterProvider router={router} />
       </Suspense>
     </>
   );

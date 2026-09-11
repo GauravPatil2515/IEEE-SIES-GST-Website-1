@@ -51,18 +51,21 @@ const societies = [
 // ======================================================
 // CHAPTER CARD — subtle tilt, clean logo plate, no glow
 // ======================================================
+// ======================================================
+// CHAPTER CARD — 3D Spring Tilt with Cosmic Frosted Glass
+// ======================================================
 function ChapterCard({ society }) {
   const { name, logo, blurb, accent, pos, delay } = society;
   const cardRef = useRef(null);
 
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
-  const rotateX = useSpring(useTransform(py, [0, 1], [4, -4]), {
-    stiffness: 120,
+  const rotateX = useSpring(useTransform(py, [0, 1], [6, -6]), {
+    stiffness: 150,
     damping: 20,
   });
-  const rotateY = useSpring(useTransform(px, [0, 1], [-4, 4]), {
-    stiffness: 120,
+  const rotateY = useSpring(useTransform(px, [0, 1], [-6, 6]), {
+    stiffness: 150,
     damping: 20,
   });
 
@@ -91,10 +94,16 @@ function ChapterCard({ society }) {
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
         style={{ rotateX, rotateY }}
-        className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+        className="group relative rounded-2xl border border-white/10 bg-[#0c101d]/60 p-6 backdrop-blur-2xl transition-all duration-300 hover:border-white/25 hover:shadow-2xl hover:shadow-black/60 overflow-hidden"
       >
-        {/* Clean logo plate for contrast */}
-        <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-xl bg-white p-2.5 shadow-sm ring-1 ring-black/5">
+        {/* Subtle Ambient Society Corner Glow */}
+        <div
+          className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-15 blur-2xl transition-opacity duration-500 group-hover:opacity-35"
+          style={{ backgroundColor: accent }}
+        />
+
+        {/* Refined emblem plate */}
+        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-white/[0.08] backdrop-blur-md border border-white/15 p-2.5 shadow-lg group-hover:scale-105 group-hover:border-white/30 transition-all duration-300">
           <img
             src={logo}
             alt={`IEEE ${name} logo`}
@@ -109,13 +118,25 @@ function ChapterCard({ society }) {
             className="h-1.5 w-1.5 rounded-full"
             style={{ backgroundColor: accent }}
           />
-          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+          <span className="text-[11px] font-mono font-medium uppercase tracking-[0.2em] text-white/50">
             Active Chapter
           </span>
         </div>
 
-        <h3 className="mb-1.5 text-lg font-semibold text-white">{name}</h3>
-        <p className="text-sm leading-relaxed text-white/55">{blurb}</p>
+        <h3 className="mb-1.5 text-lg font-bold text-white tracking-tight group-hover:text-sky-300 transition-colors">
+          {name}
+        </h3>
+        <p className="text-sm leading-relaxed text-slate-300/80">
+          {blurb}
+        </p>
+
+        {/* Bottom Accent Highlight */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[1.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            background: `linear-gradient(90deg, transparent 0%, ${accent} 50%, transparent 100%)`,
+          }}
+        />
       </motion.div>
     </motion.div>
   );
@@ -155,39 +176,40 @@ export default function AboutUs() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6 flex items-center gap-4">
-              <span className="h-px w-12 bg-[var(--color-accent-light)]" />
-              <span className="font-tech text-sm uppercase tracking-widest text-[var(--color-accent-light)]">
+              <span className="h-px w-12 bg-sky-400/80" />
+              <span className="font-mono text-xs uppercase tracking-[0.22em] text-sky-400 font-semibold">
                 Who We Are
               </span>
             </div>
 
-            <h2 className="font-display mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 sm:text-3xl md:mb-8 md:text-4xl lg:text-6xl">
+            <h2 className="font-display mb-4 text-3xl font-extrabold leading-[1.12] tracking-[-0.035em] text-white sm:mb-6 sm:text-4xl md:mb-8 md:text-5xl lg:text-6xl">
               Advancing Technology <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
                 for Humanity.
               </span>
             </h2>
 
-            <p className="mb-8 max-w-lg text-lg leading-relaxed text-[var(--color-text-secondary)]">
+            <p className="mb-8 max-w-lg text-base sm:text-lg leading-relaxed text-slate-300">
               IEEE SIES GST is more than just a student chapter; we are a
               community of innovators, thinkers, and makers. Since 2015, we've
               been bridging the gap between academic learning and industry
               excellence.
             </p>
 
-            <div className="mb-8 grid grid-cols-2 gap-4 sm:gap-5">
+            <div className="mb-8 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
               {[
                 { value: "150+", label: "Active Members" },
+                { value: "3", label: "Specialized Chapters" },
                 { value: "20+", label: "Annual Events" },
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-md hover:border-white/20 transition-all hover:bg-white/[0.06]"
                 >
-                  <div className="font-display mb-1 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+                  <div className="font-display mb-1 text-2xl font-bold text-white tabular-nums tracking-tight sm:text-3xl">
                     {s.value}
                   </div>
-                  <div className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] sm:text-sm">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
                     {s.label}
                   </div>
                 </div>

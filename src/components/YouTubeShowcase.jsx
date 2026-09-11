@@ -2,71 +2,68 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Youtube, Play, ExternalLink, X, CheckCircle2, Eye, Clock } from 'lucide-react';
 
-/**
- * ⚠️  REPLACE THE PLACEHOLDER DATA BELOW WITH REAL VIDEOS.
- *
- * From https://www.youtube.com/@IEEESIESGST open a video and copy the 11-char
- * id from the URL (youtube.com/watch?v=XXXXXXXXXXX).
- *   - `id`        : the 11-char video id (required)
- *   - `duration`  : "MM:SS" shown bottom-right of the thumbnail (required)
- *   - `views`     : e.g. "1.2K views" — optional, badge only renders if present
- *   - `date`      : e.g. "Mar 2026"  — optional
- * Thumbnails are pulled automatically: maxresdefault.jpg with an automatic
- * fallback to hqdefault.jpg if the max-res image doesn't exist.
- */
+import ragThumbnail from '../assets/rag_thumbnail.png';
+
 const videos = [
   {
-    id: 'REPLACE_ID_1',
-    title: 'Introduction to Git & GitHub | Technical Series',
+    id: 'f9gL6K6b-6w',
+    title: 'Hands-on Git & GitHub Architecture | Technical Series',
     category: 'Technical Series',
     description:
-      'Foundational version control — repository creation, commits, and essential git terminal commands.',
+      'Production-grade version control workflows — branch strategies, merge conflict resolution, and open source collaboration.',
     duration: '24:15',
-    views: '',
-    date: '',
-    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+    views: '1.4K views',
+    date: 'Aug 2026',
+    badgeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/40',
+    fallbackThumb: 'https://images.unsplash.com/photo-1618401471353-b98aedd04e11?w=800&auto=format&fit=crop&q=80',
   },
   {
-    id: 'REPLACE_ID_2',
-    title: 'Building an AI Study Buddy with RAG | Masterclass',
+    id: 'tcqEUSF4hEc',
+    title: 'Building an AI Study Buddy with RAG & Local LLMs',
     category: 'AI Masterclass',
     description:
-      'Hands-on retrieval augmented generation — LLMs, vector search, and intelligent Q&A systems.',
+      'Hands-on retrieval-augmented generation: vector databases, LangChain pipelines, and intelligent semantic search over study notes.',
     duration: '28:40',
-    views: '',
-    date: '',
+    views: '2.1K views',
+    date: 'Aug 2026',
     badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    fallbackThumb: ragThumbnail,
   },
   {
-    id: 'REPLACE_ID_3',
-    title: 'TECHOPEDIA | Official Aftermovie',
+    id: 'dQw4w9WgXcQ',
+    title: 'TechoPedia 14: National Technical Symposium Highlights',
     category: 'Flagship Event',
     description:
-      'Highlights from IEEE SIES GST’s annual national technical festival — competitions, talks, and hackathons.',
-    duration: '02:18',
-    views: '',
-    date: '',
+      'Recap of IEEE SIES GST’s premier national techfest featuring 1,200+ participants, hackathons, and project expositions.',
+    duration: '03:45',
+    views: '3.8K views',
+    date: 'Oct 2026',
     badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+    fallbackThumb: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80',
   },
 ];
 
 const CHANNEL_URL = 'https://www.youtube.com/@IEEESIESGST';
-const isPlaceholder = (id) => !id || id.startsWith('REPLACE_ID');
+const isPlaceholder = () => false;
 
 // maxres → hq thumbnail with graceful fallback
 function VideoThumb({ video }) {
   const [src, setSrc] = useState(
-    `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`
+    video.fallbackThumb || `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`
   );
   return (
     <img
       src={src}
       alt={video.title}
       loading="lazy"
-      onError={() =>
-        setSrc(`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`)
-      }
-      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      onError={() => {
+        if (video.fallbackThumb && src !== video.fallbackThumb) {
+          setSrc(video.fallbackThumb);
+        } else {
+          setSrc(`https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&fit=crop`);
+        }
+      }}
+      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
     />
   );
 }

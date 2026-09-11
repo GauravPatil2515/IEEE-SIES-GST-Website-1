@@ -84,9 +84,8 @@ function BentoTile({ src, index, span, onOpen }) {
         alt={`IEEE SIES GST — ${tag}`}
         loading="lazy"
         onLoad={() => setLoaded(true)}
-        className={`h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06] ${
-          loaded ? "blur-none opacity-100" : "scale-105 blur-lg opacity-0"
-        }`}
+        className={`h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06] ${loaded ? "blur-none opacity-100" : "scale-105 blur-lg opacity-0"
+          }`}
       />
 
       {/* readability gradient */}
@@ -104,12 +103,39 @@ function BentoTile({ src, index, span, onOpen }) {
   );
 }
 
-// ======================================================
-// GALLERY
-// ======================================================
+const CATEGORIES = [
+  { id: "all", label: "All Archives" },
+  { id: "flagship", label: "Flagship & Techfests" },
+  { id: "workshops", label: "Workshops & Labs" },
+  { id: "community", label: "Campus & Moments" },
+];
+
+const categoryMap = {
+  0: "workshops",
+  1: "flagship",
+  2: "workshops",
+  3: "workshops",
+  4: "community",
+  5: "community",
+  6: "flagship",
+  7: "community",
+  8: "community",
+  9: "flagship",
+  10: "flagship",
+  11: "workshops",
+  12: "community",
+  13: "workshops",
+  14: "community",
+};
+
 export default function Gallery() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredImages = allImages
+    .map((src, idx) => ({ src, originalIndex: idx, cat: categoryMap[idx] || "community" }))
+    .filter((item) => selectedCategory === "all" || item.cat === selectedCategory);
 
   const openLightbox = (index) => {
     setCurrentImageIndex(index);
@@ -129,23 +155,39 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="text-center"
         >
           <h2 className="section-title">Event Gallery</h2>
           <p className="section-subtitle">
-            A visual journey through our technical events, workshops, and the
-            people who make them happen.
+            A visual journey through our technical symposiums, hands-on masterclasses, and the innovators who make them happen.
           </p>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${selectedCategory === cat.id
+                    ? "bg-sky-500/20 text-sky-300 border border-sky-500/40 shadow-sm"
+                    : "bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/10"
+                  }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </motion.div>
       </div>
 
       {/* Full-bleed bento grid */}
       <div className="mx-auto w-full max-w-[1600px] px-3 sm:px-6">
         <div className="grid auto-rows-[56vw] grid-cols-1 gap-3 sm:auto-rows-[180px] sm:grid-flow-row-dense sm:grid-cols-3 lg:auto-rows-[220px] lg:grid-cols-4">
-          {allImages.map((src, i) => (
+          {filteredImages.map((item, i) => (
             <BentoTile
-              key={i}
-              src={src}
-              index={i}
+              key={item.originalIndex}
+              src={item.src}
+              index={item.originalIndex}
               span={spanPattern[i % spanPattern.length]}
               onOpen={openLightbox}
             />

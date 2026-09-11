@@ -9,6 +9,12 @@ export default {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				display: ['"Plus Jakarta Sans"', 'Outfit', 'sans-serif'],
+				tech: ['"Space Grotesk"', 'sans-serif'],
+				mono: ['"JetBrains Mono"', 'monospace'],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

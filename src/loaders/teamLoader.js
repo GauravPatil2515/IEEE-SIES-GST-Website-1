@@ -1,4 +1,29 @@
+import aaryaYewalePhoto from '../assets/team/aarya-yewale.jpg';
+import abhangRanePhoto from '../assets/team/abhang-rane.jpg';
+import aditiDhanawadePhoto from '../assets/team/aditi-dhanawade.jpg';
+import adityaSharmaPhoto from '../assets/team/aditya-sharma.jpg';
+import antaraKadamPhoto from '../assets/team/antara-kadam.jpg';
+import ashwinLPhoto from '../assets/team/ashwin-l.jpg';
+import atharvaMatalePhoto from '../assets/team/atharva-matale.jpg';
+import ayushBhadanePhoto from '../assets/team/ayush-bhadane.jpg';
+import bijuBalakrishnanPillaiPhoto from '../assets/team/biju-balakrishnan-pillai.jpg';
+import devanandBhosalePhoto from '../assets/team/devanand-bhosale.jpg';
+import diyaHinduraoPhoto from '../assets/team/diya-hindurao.jpg';
 import gauravPhoto from '../assets/team/gaurav-patil.png';
+import janmanjayVermaPhoto from '../assets/team/janmanjay-verma.jpg';
+import karthikKabadiPhoto from '../assets/team/karthik-kabadi.jpg';
+import madhuGowdaPhoto from '../assets/team/madhu-gowda.jpg';
+import mukulWaniPhoto from '../assets/team/mukul-wani.jpg';
+import nanmathiBalachandranPhoto from '../assets/team/nanmathi-balachandran.jpg';
+import neerajDalviPhoto from '../assets/team/neeraj-dalvi.jpg';
+import nidhiHegdePhoto from '../assets/team/nidhi-hegde.jpg';
+import payalWaghPhoto from '../assets/team/payal-wagh.jpg';
+import prathameshBhagwatPhoto from '../assets/team/prathamesh-bhagwat.jpg';
+import prathameshPalvePhoto from '../assets/team/prathamesh-palve.jpg';
+import siddheshMurkutePhoto from '../assets/team/siddhesh-murkute.jpg';
+import sudeeptoGhoshPhoto from '../assets/team/sudeepto-ghosh.jpg';
+import varunUbablePhoto from '../assets/team/varun-ubable.jpg';
+
 export function teamLoader() {
     return [
 
@@ -12,7 +37,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Branch Counselor',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Biju+Balakrishnan+Pillai&size=500&background=00629B&color=fff&bold=true'
+                url: bijuBalakrishnanPillaiPhoto
             },
             linkedin: 'https://www.linkedin.com/in/biju-balakrishnan-pillai-4a9b2168/'
         },
@@ -27,7 +52,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Chairperson',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Prathamesh+Palve&size=500&background=00629B&color=fff&bold=true'
+                url: prathameshPalvePhoto
             },
             linkedin: 'https://www.linkedin.com/in/prathmesh-palve-7565822b7'
         },
@@ -38,17 +63,17 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Vice Chairperson',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Abhang+Rane&size=500&background=00629B&color=fff&bold=true'
+                url: abhangRanePhoto
             },
             linkedin: 'https://www.linkedin.com/in/abhang-rane-414a24344'
         },
-         {
+        {
             _id: '201',
             name: 'Mukul Wani',
             council: 'Senior Council',
             team: 'Secretary',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Mukul+Wani&size=500&background=00629B&color=fff&bold=true'
+                url: mukulWaniPhoto
             },
             linkedin: 'https://www.linkedin.com/in/mukul-wani-1a2ba82b7'
         },
@@ -59,7 +84,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Treasurer',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Aditi+Dhanawade&size=500&background=00629B&color=fff&bold=true'
+                url: aditiDhanawadePhoto
             },
             linkedin: 'https://www.linkedin.com/in/aditi-dhanawade-0675812b7'
         },
@@ -70,7 +95,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'CS Representative',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Janmanjay+Verma&size=500&background=00629B&color=fff&bold=true'
+                url: janmanjayVermaPhoto
             },
             linkedin: 'https://www.linkedin.com/in/janmanjay-verma-64585927b'
         },
@@ -81,7 +106,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'MTT-S Representative',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Payal+Wagh&size=500&background=00629B&color=fff&bold=true'
+                url: payalWaghPhoto
             },
             linkedin: 'https://www.linkedin.com/in/payal-wagh-4395842b7'
         },
@@ -92,7 +117,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'WiE Representative',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Nidhi+Hegde&size=500&background=00629B&color=fff&bold=true'
+                url: nidhiHegdePhoto
             },
             linkedin: 'https://www.linkedin.com/in/nidhi-hegde-0a35822b7'
         },
@@ -103,7 +128,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Tech Mentor',
             photo: {
-            url: gauravPhoto
+                url: gauravPhoto
             },
             linkedin: 'https://www.linkedin.com/in/gauravpatil2515'
         },
@@ -114,7 +139,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Tech Mentor',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Aditya+Sharma&size=500&background=00629B&color=fff&bold=true'
+                url: adityaSharmaPhoto
             },
             linkedin: 'https://www.linkedin.com/in/aditya-sharma-3625732a8'
         },
@@ -125,7 +150,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Design Mentor',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Diya+Hindurao&size=500&background=00629B&color=fff&bold=true'
+                url: diyaHinduraoPhoto
             },
             linkedin: 'https://www.linkedin.com/in/divya-hindurao-895a992a7'
         },
@@ -136,7 +161,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Media Mentor',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Varun+Ubable&size=500&background=00629B&color=fff&bold=true'
+                url: varunUbablePhoto
             },
             linkedin: 'https://www.linkedin.com/in/varun-ubale'
         },
@@ -147,7 +172,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'Publicity Mentor',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Devanand+Bhosale&size=500&background=00629B&color=fff&bold=true'
+                url: devanandBhosalePhoto
             },
             linkedin: 'https://www.linkedin.com/in/devanand-bhosale-7405822b7'
         },
@@ -158,7 +183,7 @@ export function teamLoader() {
             council: 'Senior Council',
             team: 'PR & Admin Mentor',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Sudeepto+Ghosh&size=500&background=00629B&color=fff&bold=true'
+                url: sudeeptoGhoshPhoto
             },
             linkedin: 'https://www.linkedin.com/in/sudeeptoghosh10'
         },
@@ -173,7 +198,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Joint Secretary',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Ayush+Bhadane&size=500&background=00629B&color=fff&bold=true'
+                url: ayushBhadanePhoto
             },
             linkedin: 'https://www.linkedin.com/in/ayush-bhadane-b38a71353'
         },
@@ -206,18 +231,18 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'CS Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Atharva+Matale&size=500&background=00629B&color=fff&bold=true'
+                url: atharvaMatalePhoto
             },
             linkedin: 'https://www.linkedin.com/in/atharvamatale/'
         },
-        
+
         {
             _id: '105',
             name: 'Siddhesh Murkute',
             council: 'Junior Council',
             team: 'MTT-S Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Siddhesh+Murkute&size=500&background=00629B&color=fff&bold=true'
+                url: siddheshMurkutePhoto
             },
             linkedin: 'https://www.linkedin.com/in/siddhesh-murkute-9025332a4'
         },
@@ -228,7 +253,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'WiE Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Madhu+Gowda&size=500&background=00629B&color=fff&bold=true'
+                url: madhuGowdaPhoto
             },
             linkedin: 'https://www.linkedin.com/in/madhu-gowda-561307395'
         },
@@ -239,7 +264,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'MDO',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Prathamesh+Bhagwat&size=500&background=00629B&color=fff&bold=true'
+                url: prathameshBhagwatPhoto
             },
             linkedin: 'https://www.linkedin.com/in/prathamesh-bhagwat-191409298'
         },
@@ -272,7 +297,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Nanmathi+Balachandran&size=500&background=00629B&color=fff&bold=true'
+                url: nanmathiBalachandranPhoto
             },
             linkedin: 'https://www.linkedin.com/in/nanmathi-balachandran-11038b32b/'
         },
@@ -287,25 +312,25 @@ export function teamLoader() {
             },
             linkedin: 'https://www.linkedin.com/in/siddharth-patil-763635426/'
         },
-         
+
         {
             _id: '111',
             name: 'Akilesh K',
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-            url: 'https://ui-avatars.com/api/?name=Akilesh+K&size=500&background=00629B&color=fff&bold=true'
+                url: 'https://ui-avatars.com/api/?name=Akilesh+K&size=500&background=00629B&color=fff&bold=true'
             },
             linkedin: 'https://www.linkedin.com/in/akilesh-kalyanakumar-7901b9255'
         },
         {
-             _id: '119',
-             name: 'Anoushka Rajesh',
+            _id: '119',
+            name: 'Anoushka Rajesh',
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-            url: 'https://ui-avatars.com/api/?name=Anoushka+Rajesh&size=500&background=00629B&color=fff&bold=true'
-             },
+                url: 'https://ui-avatars.com/api/?name=Anoushka+Rajesh&size=500&background=00629B&color=fff&bold=true'
+            },
             linkedin: 'https://www.linkedin.com/in/anoushka-rajesh-181a85422'
         },
         {
@@ -325,7 +350,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Media Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Karthik+Kabadi&size=500&background=00629B&color=fff&bold=true'
+                url: karthikKabadiPhoto
             },
             linkedin: 'https://www.linkedin.com/in/karthik-kabadi-6a911a330'
         },
@@ -336,7 +361,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Design Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Antara+Kadam&size=500&background=00629B&color=fff&bold=true'
+                url: antaraKadamPhoto
             },
             linkedin: 'https://www.linkedin.com/in/antarakadam2006/'
         },
@@ -368,17 +393,17 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Publicity Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Aarya+Yewale&size=500&background=00629B&color=fff&bold=true'
+                url: aaryaYewalePhoto
             },
             linkedin: 'https://www.linkedin.com/in/aarya-yewale-047032356'
         },
-         {
+        {
             _id: '120',
             name: 'Neeraj Dalvi',
             council: 'Junior Council',
             team: 'PR & Admin Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Neeraj+Dalvi&size=500&background=00629B&color=fff&bold=true'
+                url: neerajDalviPhoto
             },
             linkedin: ''
         },
@@ -388,12 +413,12 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'PR Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Ashwin+L&size=500&background=00629B&color=fff&bold=true'
+                url: ashwinLPhoto
             },
             linkedin: 'https://www.linkedin.com/in/ashwin-lakshminarasimman-4b3512412'
         },
 
-       
-        
+
+
     ];
 }

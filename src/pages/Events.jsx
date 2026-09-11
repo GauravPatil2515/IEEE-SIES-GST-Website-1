@@ -206,11 +206,10 @@ const StatusBadge = ({ state }) => {
   const isUpcoming = state?.toLowerCase() === 'upcoming';
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider backdrop-blur-md ${
-        isUpcoming
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider backdrop-blur-md ${isUpcoming
           ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-300 shadow-[0_0_16px_rgba(16,185,129,0.35)]'
           : 'border-white/15 bg-black/60 text-slate-300'
-      }`}
+        }`}
     >
       <span className={`h-1.5 w-1.5 rounded-full ${isUpcoming ? 'bg-emerald-400 animate-pulse' : 'bg-slate-400'}`} />
       {isUpcoming ? 'Upcoming' : 'Completed'}
@@ -239,9 +238,8 @@ const EventCard = ({ event, index, isCarousel = false, onQuickView }) => {
     <motion.div
       ref={cardRef}
       onMouseMove={handleMove}
-      className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070e1b]/80 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_12px_40px_rgba(6,182,212,0.12)] ${
-        isCarousel ? 'w-[85vw] max-w-[350px] flex-shrink-0' : 'h-full'
-      }`}
+      className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070e1b]/80 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_12px_40px_rgba(6,182,212,0.12)] ${isCarousel ? 'w-[85vw] max-w-[350px] flex-shrink-0' : 'h-full'
+        }`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -313,10 +311,10 @@ const EventCard = ({ event, index, isCarousel = false, onQuickView }) => {
           </div>
         </button>
 
-        {/* CARD CONTENT (STRUCTURED WITH BALANCED HEIGHTS) */}
+        {/* CARD CONTENT (STRUCTURED WITH BALANCED HEIGHTS & POLISHED TYPOGRAPHY) */}
         <div className="p-5 flex flex-col flex-1">
-          {/* Speaker / Host row (fixed single line height) */}
-          <div className="h-5 mb-2 flex items-center gap-1.5 text-xs font-semibold text-cyan-300/90 truncate">
+          {/* Speaker / Host row */}
+          <div className="h-5 mb-2 flex items-center gap-1.5 text-xs font-medium text-cyan-300/90 tracking-tight truncate">
             <User className="h-3.5 w-3.5 flex-shrink-0 text-cyan-400" />
             <span className="truncate">
               {event.speaker}
@@ -324,25 +322,25 @@ const EventCard = ({ event, index, isCarousel = false, onQuickView }) => {
             </span>
           </div>
 
-          {/* Event Title (Fixed 2-line height for visual alignment) */}
-          <h3 className="h-14 mb-2 flex items-start text-base sm:text-lg font-bold leading-snug text-white group-hover:text-cyan-200 transition-colors line-clamp-2">
+          {/* Event Title */}
+          <h3 className="h-14 mb-2 flex items-start font-display text-base sm:text-[1.05rem] font-bold leading-snug tracking-tight text-white group-hover:text-cyan-200 transition-colors line-clamp-2">
             {event.eventName}
           </h3>
 
-          {/* Date & Location metadata (Fixed height) */}
-          <div className="h-5 mb-3 flex items-center justify-between text-xs text-slate-400">
+          {/* Date & Location metadata */}
+          <div className="h-5 mb-3 flex items-center justify-between text-xs text-slate-400 font-mono tabular-nums">
             <span className="inline-flex items-center gap-1.5">
               <Calendar className="h-3.5 w-3.5 text-cyan-400" />
               {event.date || 'SIES GST'}
             </span>
-            <span className="inline-flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-1.5 font-sans">
               <MapPin className="h-3.5 w-3.5 text-cyan-400" />
               SIES GST
             </span>
           </div>
 
-          {/* Description snippet (Fixed 2-line height for clean rhythm) */}
-          <p className="h-10 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-2">
+          {/* Description snippet */}
+          <p className="h-10 text-xs sm:text-[0.8125rem] leading-relaxed text-slate-300/90 line-clamp-2">
             {event.eventDescription}
           </p>
         </div>
@@ -463,7 +461,7 @@ const QuickViewModal = ({ event, onClose }) => {
             )}
           </div>
 
-          <h3 className="text-xl font-bold leading-snug text-white sm:text-2xl">
+          <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold leading-snug tracking-tight text-white">
             {event.eventName}
           </h3>
 
@@ -605,14 +603,14 @@ const Events = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-semibold text-cyan-300 mb-4 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-mono font-medium tracking-wide text-cyan-300 mb-4 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
             <Sparkles className="h-3.5 w-3.5" />
-            IEEE SIES GST Major Events & Highlights
+            IEEE SIES GST • Flagship Calendar
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+          <h2 className="section-title">
             Major Events & Workshops
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="section-subtitle">
             Flagship technical festivals, expert industry seminars, hands-on bootcamps, and national symposiums organized by IEEE SIES GST.
           </p>
         </motion.div>
@@ -635,17 +633,15 @@ const Events = () => {
                 <button
                   key={tab.id}
                   onClick={() => setFilter(tab.id)}
-                  className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
-                    isActive
+                  className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${isActive
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/25'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
-                  }`}
+                    }`}
                 >
                   <span>{tab.label}</span>
                   <span
-                    className={`rounded-full px-1.5 py-0.2 text-[10px] font-bold ${
-                      isActive ? 'bg-white/20 text-white' : 'bg-white/5 text-slate-400'
-                    }`}
+                    className={`rounded-full px-1.5 py-0.2 text-[10px] font-bold ${isActive ? 'bg-white/20 text-white' : 'bg-white/5 text-slate-400'
+                      }`}
                   >
                     {count}
                   </span>
