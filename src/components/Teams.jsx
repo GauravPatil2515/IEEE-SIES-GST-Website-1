@@ -5,9 +5,11 @@ import { ArrowLeft, Search, Users } from "lucide-react";
 import logo from "../assets/siesLogo.webp";
 import TeamSection from "./team";
 
+const COUNCILS = ["Branch Counselor", "Senior Council", "Junior Council"];
+
 export default function Teams() {
   const members = useLoaderData() || [];
-  const [selectedCouncil, setSelectedCouncil] = useState("Senior Council");
+  const [selectedCouncil, setSelectedCouncil] = useState("Branch Counselor");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredMembers = useMemo(() => {
@@ -55,25 +57,38 @@ export default function Teams() {
           >
             <h1 className="section-title">Leadership & Council</h1>
             <p className="section-subtitle">
-              Meet the passionate student leaders and technical mentors steering IEEE SIES GST for the 2026–2027 term.
+              Meet our distinguished faculty counselor, student leadership, and technical mentors steering IEEE SIES GST for the 2026–2027 term.
             </p>
 
             {/* Controls: Segmented Pill & Search */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
               {/* Apple-style Segmented Control */}
-              <div className="inline-flex p-1 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md">
-                {["Senior Council", "Junior Council"].map((council) => (
-                  <button
-                    key={council}
-                    onClick={() => setSelectedCouncil(council)}
-                    className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${selectedCouncil === council
-                        ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
-                        : "text-slate-400 hover:text-white"
+              <div className="inline-flex flex-wrap items-center justify-center p-1 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md gap-1">
+                {COUNCILS.map((council) => {
+                  const count = members.filter((m) => m.council === council).length;
+                  return (
+                    <button
+                      key={council}
+                      onClick={() => setSelectedCouncil(council)}
+                      className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${
+                        selectedCouncil === council
+                          ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
+                          : "text-slate-400 hover:text-white"
                       }`}
-                  >
-                    {council}
-                  </button>
-                ))}
+                    >
+                      <span>{council}</span>
+                      <span
+                        className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                          selectedCouncil === council
+                            ? "bg-white/25 text-white"
+                            : "bg-white/10 text-slate-400"
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Quick Search */}

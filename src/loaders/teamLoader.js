@@ -34,7 +34,7 @@ export function teamLoader() {
         {
             _id: '0',
             name: 'Prof. Biju Balakrishnan Pillai',
-            council: 'Senior Council',
+            council: 'Branch Counselor',
             team: 'Branch Counselor',
             photo: {
                 url: bijuBalakrishnanPillaiPhoto

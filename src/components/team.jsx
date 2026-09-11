@@ -32,13 +32,21 @@ const TeamMemberCard = React.memo(({ member, index }) => {
     member.photo.url.includes("ui-avatars.com") ||
     imageError;
 
+  const isCounselor =
+    member.council === "Branch Counselor" ||
+    member.team === "Branch Counselor";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
-      className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/25 hover:bg-white/[0.06] hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 flex flex-col justify-between"
+      className={`group relative rounded-2xl border p-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col justify-between ${
+        isCounselor
+          ? "border-sky-400/40 bg-gradient-to-b from-sky-500/[0.08] via-white/[0.04] to-white/[0.02] shadow-[0_0_35px_rgba(56,189,248,0.12)] hover:border-sky-400/70"
+          : "border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06] hover:shadow-black/50"
+      }`}
     >
       {/* Photo / Avatar Area */}
       <div className="relative w-full aspect-[4/4.2] overflow-hidden rounded-xl bg-neutral-900/80 border border-white/5 mb-4">
@@ -55,7 +63,7 @@ const TeamMemberCard = React.memo(({ member, index }) => {
             </div>
 
             <span className="relative z-10 mt-3 text-[10px] font-mono uppercase tracking-widest text-slate-400">
-              Council Member
+              {isCounselor ? "Faculty Counselor" : "Council Member"}
             </span>
           </div>
         ) : (
@@ -64,8 +72,9 @@ const TeamMemberCard = React.memo(({ member, index }) => {
               <div className="absolute inset-0 bg-slate-800/50 animate-pulse" />
             )}
             <img
-              className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"
-                }`}
+              className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
+                imageLoaded ? "opacity-100" : "opacity-0"
+              }`}
               src={member.photo.url}
               alt={member.name}
               loading="lazy"
@@ -84,9 +93,23 @@ const TeamMemberCard = React.memo(({ member, index }) => {
             {member.name}
           </h3>
 
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/10 border border-sky-500/25 text-sky-300 mb-3">
+          <span
+            className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+              isCounselor ? "mb-1.5" : "mb-3"
+            } ${
+              isCounselor
+                ? "bg-sky-500/20 border border-sky-400/40 text-sky-200 shadow-sm"
+                : "bg-sky-500/10 border border-sky-500/25 text-sky-300"
+            }`}
+          >
             {member.team}
           </span>
+
+          {isCounselor && (
+            <p className="text-[11px] text-slate-400 font-mono tracking-wide mb-3">
+              Faculty Advisor & Mentor • SIES GST
+            </p>
+          )}
         </div>
 
         {member.linkedin && (
@@ -107,13 +130,33 @@ const TeamMemberCard = React.memo(({ member, index }) => {
   );
 });
 
-const TeamGrid = ({ members }) => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    {(members || []).map((member, idx) => (
-      <TeamMemberCard key={member._id} member={member} index={idx} />
-    ))}
-  </div>
-);
+const TeamGrid = ({ members }) => {
+  if (!members || members.length === 0) {
+    return (
+      <div className="text-center py-16">
+        <p className="text-slate-400 text-sm">No members found matching your search.</p>
+      </div>
+    );
+  }
+
+  if (members.length === 1) {
+    return (
+      <div className="flex justify-center py-6">
+        <div className="w-full max-w-sm sm:max-w-md">
+          <TeamMemberCard member={members[0]} index={0} />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {members.map((member, idx) => (
+        <TeamMemberCard key={member._id} member={member} index={idx} />
+      ))}
+    </div>
+  );
+};
 
 function TeamSection({ members }) {
   const loaderMembers = useLoaderData();
