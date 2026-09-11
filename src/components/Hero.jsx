@@ -117,10 +117,12 @@ const Hero = () => {
               <span className="font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-sky-300 transition-colors">
                 IEEE SIES GST
               </span>
-              <div className="hidden lg:flex items-center gap-2 pl-2.5 border-l border-white/15">
-                <img src={csLogo} alt="Computer Society" title="IEEE Computer Society" className="w-5 h-5 object-contain opacity-75 hover:opacity-100 hover:scale-110 transition-all" />
-                <img src={mttsLogo} alt="MTT-S" title="IEEE MTT-S Society" className="w-5 h-5 object-contain opacity-75 hover:opacity-100 hover:scale-110 transition-all" />
-                <img src={wieLogo} alt="Women in Engineering" title="IEEE Women in Engineering" className="w-5 h-5 object-contain opacity-75 hover:opacity-100 hover:scale-110 transition-all" />
+              <div className="hidden lg:flex items-center gap-2.5 pl-3 border-l border-white/15">
+                <img src={csLogo} alt="Computer Society" title="IEEE Computer Society" className="h-5 w-auto max-w-[48px] object-contain opacity-85 hover:opacity-100 hover:scale-105 transition-all" />
+                <img src={mttsLogo} alt="MTT-S" title="IEEE MTT-S Society" className="h-5 w-auto object-contain opacity-85 hover:opacity-100 hover:scale-105 transition-all" />
+                <span className="h-5 w-5 rounded bg-white/95 p-0.5 inline-flex items-center justify-center opacity-85 hover:opacity-100 hover:scale-105 transition-all shadow-sm">
+                  <img src={wieLogo} alt="Women in Engineering" title="IEEE Women in Engineering" className="h-full w-full object-contain" />
+                </span>
               </div>
             </div>
           </NavLink>
@@ -213,33 +215,33 @@ const Hero = () => {
             Advancing technological innovation and academic excellence at SIES Graduate School of Technology. Where student passion meets global engineering standards.
           </p>
 
-          <div className="hero-buttons flex flex-wrap gap-4 sm:gap-5 justify-center mt-7 sm:mt-8">
+          <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center items-center w-full max-w-md sm:max-w-none mt-7 sm:mt-8">
             <a
               href="#events"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold tracking-tight text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 shadow-lg shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-sky-500/40"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold tracking-tight text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 shadow-lg shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-sky-500/40"
             >
               Explore Events
               <ArrowRight className="w-4 h-4" />
             </a>
             <NavLink
               to="/team"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold tracking-tight text-slate-200 bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 hover:border-white/30 backdrop-blur-md transition-all duration-300 hover:scale-[1.02]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold tracking-tight text-slate-200 bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 hover:border-white/30 backdrop-blur-md transition-all duration-300 hover:scale-[1.02]"
             >
               Meet the Council
             </NavLink>
           </div>
 
           {/* Understated Glass Metrics Strip */}
-          <div className="mt-10 sm:mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-8 px-6 py-2.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md text-xs sm:text-sm text-slate-400 font-mono">
-            <div className="flex items-center gap-2">
+          <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-8 px-4 sm:px-6 py-2.5 rounded-2xl sm:rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md text-xs sm:text-sm text-slate-400 font-mono max-w-full">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="text-white font-bold font-display tabular-nums">150+</span> Members
             </div>
             <span className="text-white/20 hidden sm:inline">•</span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="text-white font-bold font-display tabular-nums">3</span> Chapters
             </div>
             <span className="text-white/20 hidden sm:inline">•</span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="text-white font-bold font-display tabular-nums">20+</span> Annual Events
             </div>
           </div>

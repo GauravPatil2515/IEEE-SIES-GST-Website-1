@@ -48,7 +48,7 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
         onClick={onToggle}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className={`text-base font-medium transition-colors ${isOpen ? 'text-[var(--color-accent)]' : 'text-white group-hover:text-[var(--color-accent)]'}`}>
+        <span className={`text-sm sm:text-base font-medium transition-colors ${isOpen ? 'text-[var(--color-accent)]' : 'text-white group-hover:text-[var(--color-accent)]'}`}>
           {faq.question}
         </span>
         <span className={`flex-shrink-0 ml-4 w-6 h-6 rounded-full flex items-center justify-center transition-all ${isOpen ? 'bg-[var(--color-accent)] text-white' : 'bg-white/5 text-[var(--color-text-secondary)]'}`}>

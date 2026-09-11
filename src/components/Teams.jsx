@@ -61,16 +61,16 @@ export default function Teams() {
             </p>
 
             {/* Controls: Segmented Pill & Search */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6">
               {/* Apple-style Segmented Control */}
-              <div className="inline-flex flex-wrap items-center justify-center p-1 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md gap-1">
+              <div className="flex max-w-full overflow-x-auto p-1 rounded-2xl sm:rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md gap-1 no-scrollbar w-full sm:w-auto justify-start sm:justify-center">
                 {COUNCILS.map((council) => {
                   const count = members.filter((m) => m.council === council).length;
                   return (
                     <button
                       key={council}
                       onClick={() => setSelectedCouncil(council)}
-                      className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${
+                      className={`flex-shrink-0 whitespace-nowrap px-3.5 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 sm:gap-2 ${
                         selectedCouncil === council
                           ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                           : "text-slate-400 hover:text-white"

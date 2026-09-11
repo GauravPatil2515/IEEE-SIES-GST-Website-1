@@ -25,8 +25,10 @@ const societies = [
     logo: cs,
     blurb: "Innovation in computing, AI, and software development.",
     accent: "#3b82f6",
-    pos: "lg:absolute lg:top-0 lg:right-8 lg:w-64",
+    pos: "lg:absolute lg:top-0 lg:right-8 lg:w-72",
     delay: 0.15,
+    badgeClass: "h-16 px-4 bg-slate-900/90 border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.15)]",
+    imgClass: "h-10 sm:h-11 w-auto max-w-[130px]",
   },
   {
     key: "mtts",
@@ -36,6 +38,8 @@ const societies = [
     accent: "#8b5cf6",
     pos: "lg:absolute lg:top-[36%] lg:left-0 lg:w-72 lg:z-20",
     delay: 0.3,
+    badgeClass: "h-16 px-4 bg-slate-900/90 border-purple-500/30 shadow-[0_0_20px_rgba(139,92,246,0.15)]",
+    imgClass: "h-11 sm:h-12 w-auto max-w-[90px]",
   },
   {
     key: "wie",
@@ -43,19 +47,18 @@ const societies = [
     logo: wie,
     blurb: "Empowering women in technology and research.",
     accent: "#ec4899",
-    pos: "lg:absolute lg:bottom-6 lg:right-16 lg:w-60",
+    pos: "lg:absolute lg:bottom-6 lg:right-16 lg:w-72",
     delay: 0.45,
+    badgeClass: "h-16 px-4 bg-white/95 border-white shadow-lg shadow-pink-500/20",
+    imgClass: "h-11 sm:h-12 w-auto max-w-[90px] drop-shadow-sm",
   },
 ];
 
 // ======================================================
-// CHAPTER CARD — subtle tilt, clean logo plate, no glow
-// ======================================================
-// ======================================================
 // CHAPTER CARD — 3D Spring Tilt with Cosmic Frosted Glass
 // ======================================================
 function ChapterCard({ society }) {
-  const { name, logo, blurb, accent, pos, delay } = society;
+  const { name, logo, blurb, accent, pos, delay, badgeClass, imgClass } = society;
   const cardRef = useRef(null);
 
   const px = useMotionValue(0.5);
@@ -102,12 +105,12 @@ function ChapterCard({ society }) {
           style={{ backgroundColor: accent }}
         />
 
-        {/* Refined emblem plate */}
-        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-white/[0.08] backdrop-blur-md border border-white/15 p-2.5 shadow-lg group-hover:scale-105 group-hover:border-white/30 transition-all duration-300">
+        {/* High-visibility Emblem Badge */}
+        <div className={`mb-5 inline-flex items-center justify-center rounded-2xl backdrop-blur-xl border transition-all duration-300 group-hover:scale-105 ${badgeClass}`}>
           <img
             src={logo}
             alt={`IEEE ${name} logo`}
-            className="h-full w-full object-contain"
+            className={`${imgClass} object-contain transition-transform duration-300`}
             draggable={false}
             loading="lazy"
           />
@@ -196,20 +199,20 @@ export default function AboutUs() {
               excellence.
             </p>
 
-            <div className="mb-8 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="mb-8 grid grid-cols-3 gap-2 sm:gap-4">
               {[
                 { value: "150+", label: "Active Members" },
-                { value: "3", label: "Specialized Chapters" },
+                { value: "3", label: "Chapters" },
                 { value: "20+", label: "Annual Events" },
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-md hover:border-white/20 transition-all hover:bg-white/[0.06]"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-3 sm:p-4 text-center sm:text-left backdrop-blur-md hover:border-white/20 transition-all hover:bg-white/[0.06]"
                 >
-                  <div className="font-display mb-1 text-2xl font-bold text-white tabular-nums tracking-tight sm:text-3xl">
+                  <div className="font-display mb-1 text-xl sm:text-2xl md:text-3xl font-bold text-white tabular-nums tracking-tight">
                     {s.value}
                   </div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                  <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-slate-400">
                     {s.label}
                   </div>
                 </div>
@@ -218,7 +221,7 @@ export default function AboutUs() {
 
             <a
               href="#contact"
-              className="btn btn-secondary group rounded-full border-white/20 px-8 hover:bg-white/10"
+              className="btn btn-secondary group rounded-full border-white/20 px-8 hover:bg-white/10 w-full sm:w-auto inline-flex items-center justify-center gap-2"
             >
               Join Our Community
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

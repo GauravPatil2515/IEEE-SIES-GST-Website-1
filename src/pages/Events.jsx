@@ -418,7 +418,7 @@ const QuickViewModal = ({ event, onClose }) => {
         exit={{ scale: 0.94, opacity: 0 }}
         transition={{ type: 'spring', damping: 26, stiffness: 320 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative grid w-full max-w-5xl max-h-[92vh] overflow-hidden rounded-2xl border border-white/15 bg-neutral-950 shadow-2xl md:grid-cols-[1.1fr_1fr]"
+        className="relative grid w-full max-w-5xl max-h-[92vh] overflow-y-auto md:overflow-hidden rounded-2xl border border-white/15 bg-neutral-950 shadow-2xl md:grid-cols-[1.1fr_1fr]"
       >
         <button
           onClick={onClose}
@@ -429,7 +429,7 @@ const QuickViewModal = ({ event, onClose }) => {
         </button>
 
         {/* Full uncropped flyer display */}
-        <div className="relative flex items-center justify-center bg-black/95 p-4 md:p-6 max-h-[45vh] md:max-h-[90vh] overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+        <div className="relative flex items-center justify-center bg-black/95 p-4 md:p-6 min-h-[220px] max-h-[42vh] md:max-h-[90vh] overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
           <img
             src={event.eventImage?.url || FALLBACK_IMG}
             alt=""
@@ -447,7 +447,7 @@ const QuickViewModal = ({ event, onClose }) => {
         </div>
 
         {/* Event dossier & Action CTAs */}
-        <div className="flex flex-col gap-4 p-6 sm:p-8 overflow-y-auto max-h-[50vh] md:max-h-[90vh]">
+        <div className="flex flex-col gap-4 p-5 sm:p-8 md:overflow-y-auto md:max-h-[90vh]">
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-300">
               {event.eventType}
@@ -618,7 +618,7 @@ const Events = () => {
         {/* TIER 2: SYMMETRICAL CONTROLS & FILTER TOOLBAR */}
         <div className="max-w-6xl mx-auto mb-8 flex flex-col md:flex-row items-center justify-between gap-4 p-2 sm:p-2.5 rounded-2xl border border-white/10 bg-[#070e1b]/70 backdrop-blur-xl shadow-xl">
           {/* Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-1.5 w-full md:w-auto">
+          <div className="flex items-center overflow-x-auto max-w-full pb-1 md:pb-0 md:flex-wrap gap-1.5 no-scrollbar w-full md:w-auto">
             {[
               { id: 'all', label: 'All Events' },
               { id: 'flagship', label: 'Flagship' },
@@ -633,7 +633,7 @@ const Events = () => {
                 <button
                   key={tab.id}
                   onClick={() => setFilter(tab.id)}
-                  className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${isActive
+                  className={`flex-shrink-0 whitespace-nowrap inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${isActive
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/25'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
                     }`}

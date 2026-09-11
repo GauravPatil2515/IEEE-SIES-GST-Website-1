@@ -163,12 +163,12 @@ export default function Gallery() {
           </p>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <div className="flex items-center overflow-x-auto max-w-full pb-1 sm:pb-0 sm:flex-wrap justify-start sm:justify-center gap-2 mb-8 sm:mb-10 no-scrollbar">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${selectedCategory === cat.id
+                className={`flex-shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${selectedCategory === cat.id
                     ? "bg-sky-500/20 text-sky-300 border border-sky-500/40 shadow-sm"
                     : "bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/10"
                   }`}

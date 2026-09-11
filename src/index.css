@@ -160,12 +160,12 @@
 
   .section-title {
     font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
-    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-size: clamp(1.75rem, 5.5vw, 3.75rem);
     font-weight: 800;
     margin-bottom: 0.875rem;
     text-align: center;
     letter-spacing: -0.035em;
-    line-height: 1.12;
+    line-height: 1.15;
     padding: 0 0.5rem;
     text-wrap: balance;
     background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.82) 100%);
@@ -176,13 +176,13 @@
 
   .section-subtitle {
     font-family: 'Inter', -apple-system, sans-serif;
-    font-size: clamp(0.9375rem, 1.8vw, 1.125rem);
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
     color: #94a3b8;
     font-weight: 400;
     text-align: center;
     max-width: 640px;
-    margin: 0 auto 2.75rem;
-    line-height: 1.7;
+    margin: 0 auto 2.25rem;
+    line-height: 1.65;
     padding: 0 1rem;
     letter-spacing: -0.012em;
     text-wrap: pretty;
@@ -213,6 +213,15 @@
     }
   }
 
+  /* ===== NO SCROLLBAR UTILITY ===== */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   /* ===== NAVBAR ===== */
   .navbar {
     position: fixed;
@@ -231,6 +240,14 @@
     transition: all 0.3s ease;
   }
 
+  @media (max-width: 640px) {
+    .navbar {
+      top: 0.75rem;
+      width: 94%;
+      padding: 0.5rem 0.875rem;
+    }
+  }
+
   .navbar.scrolled {
     background: rgba(0, 28, 85, 0.3);
     /* Slight blue tint when scrolled */
@@ -238,6 +255,14 @@
     width: 95%;
     /* Expands slightly when scrolled */
     top: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .navbar.scrolled {
+      top: 0.5rem;
+      width: 96%;
+      padding: 0.5rem 0.875rem;
+    }
   }
 
   .nav-menu {

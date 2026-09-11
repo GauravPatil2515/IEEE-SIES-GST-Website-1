@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import { Mail, MapPin, Instagram, Linkedin, Github, Youtube } from "lucide-react";
 
 export default function Contact() {
@@ -72,9 +73,18 @@ export default function Contact() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: idx * 0.05 }}
                   >
-                    <a href={`#${item.toLowerCase()}`} className="text-[var(--color-text-secondary)] hover:text-white transition-colors text-sm sm:text-base md:text-lg">
-                      {item}
-                    </a>
+                    {item === 'Team' ? (
+                      <NavLink to="/team" className="text-[var(--color-text-secondary)] hover:text-white transition-colors text-sm sm:text-base">
+                        {item}
+                      </NavLink>
+                    ) : (
+                      <a
+                        href={`#${item === 'About' ? 'aboutus' : item.toLowerCase()}`}
+                        className="text-[var(--color-text-secondary)] hover:text-white transition-colors text-sm sm:text-base"
+                      >
+                        {item}
+                      </a>
+                    )}
                   </motion.li>
                 ))}
               </ul>
