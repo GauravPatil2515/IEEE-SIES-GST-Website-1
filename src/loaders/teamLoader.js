@@ -1,8 +1,6 @@
-import aaryaYewalePhoto from '../assets/team/aarya-yewale.jpg';
 import abhangRanePhoto from '../assets/team/abhang-rane.jpg';
 import aditiDhanawadePhoto from '../assets/team/aditi-dhanawade.jpg';
 import adityaSharmaPhoto from '../assets/team/aditya-sharma.jpg';
-import antaraKadamPhoto from '../assets/team/antara-kadam.jpg';
 import ashwinLPhoto from '../assets/team/ashwin-l.jpg';
 import atharvaMatalePhoto from '../assets/team/atharva-matale.jpg';
 import ayushBhadanePhoto from '../assets/team/ayush-bhadane.jpg';
@@ -15,7 +13,7 @@ import karthikKabadiPhoto from '../assets/team/karthik-kabadi.jpg';
 import madhuGowdaPhoto from '../assets/team/madhu-gowda.jpg';
 import mukulWaniPhoto from '../assets/team/mukul-wani.jpg';
 import nanmathiBalachandranPhoto from '../assets/team/nanmathi-balachandran.jpg';
-import neerajDalviPhoto from '../assets/team/neeraj-dalvi.jpg';
+import neerajDalviPhoto from '../assets/team/neeraj-dalvi.png';
 import nidhiHegdePhoto from '../assets/team/nidhi-hegde.jpg';
 import payalWaghPhoto from '../assets/team/payal-wagh.jpg';
 import prathameshBhagwatPhoto from '../assets/team/prathamesh-bhagwat.jpg';
@@ -23,6 +21,21 @@ import prathameshPalvePhoto from '../assets/team/prathamesh-palve.jpg';
 import siddheshMurkutePhoto from '../assets/team/siddhesh-murkute.jpg';
 import sudeeptoGhoshPhoto from '../assets/team/sudeepto-ghosh.jpg';
 import varunUbablePhoto from '../assets/team/varun-ubable.jpg';
+import chirayuMarathePhoto from '../assets/team/chirayu-marathe.jpg';
+import rushikeshPawarPhoto from '../assets/team/rushikesh-pawar.png';
+import vaishnaviIyerPhoto from '../assets/team/vaishnavi-iyer.jpg';
+import taazeenAnsariPhoto from '../assets/team/taazeen-ansari.jpeg';
+import akileshKPhoto from '../assets/team/akilesh-k.jpg';
+import dakshataDalviPhoto from '../assets/team/dakshata-dalvi.jpg';
+import riyaParabPhoto from '../assets/team/riya-parab.jpg';
+import siddharthPatilPhoto from '../assets/team/siddharth-patil.jpg';
+import kaustubhBhoirPhoto from '../assets/team/kaustubh-bhoir.png';
+import aryaMuthukrishnanPhoto from '../assets/team/arya_muthukrishan.jpeg';
+import trushnaMhatrePhoto from '../assets/team/trushna-mhatre.jpg';
+import antaraKadamPhoto from '../assets/team/antara-kadam.jpg';
+import anoushkaRajeshPhoto from '../assets/team/anoushka-rajesh.png';
+import arpitaMishraPhoto from '../assets/team/arpita-mishra.png';
+
 
 export function teamLoader() {
     return [
@@ -89,15 +102,15 @@ export function teamLoader() {
             linkedin: 'https://www.linkedin.com/in/aditi-dhanawade-0675812b7'
         },
 
-        {
-            _id: '203',
-            name: 'Janmanjay Verma',
+      {
+            _id: '206',
+            name: 'Gaurav Patil',
             council: 'Senior Council',
             team: 'CS Representative',
             photo: {
-                url: janmanjayVermaPhoto
+                url: gauravPhoto
             },
-            linkedin: 'https://www.linkedin.com/in/janmanjay-verma-64585927b'
+            linkedin: 'https://www.linkedin.com/in/gauravpatil2515'
         },
 
         {
@@ -121,17 +134,18 @@ export function teamLoader() {
             },
             linkedin: 'https://www.linkedin.com/in/nidhi-hegde-0a35822b7'
         },
-
-        {
-            _id: '206',
-            name: 'Gaurav Patil',
+          {
+            _id: '203',
+            name: 'Janmanjay Verma',
             council: 'Senior Council',
             team: 'Tech Mentor',
             photo: {
-                url: gauravPhoto
+                url: janmanjayVermaPhoto
             },
-            linkedin: 'https://www.linkedin.com/in/gauravpatil2515'
+            linkedin: 'https://www.linkedin.com/in/janmanjay-verma-64585927b'
         },
+
+
 
         {
             _id: '207',
@@ -143,6 +157,17 @@ export function teamLoader() {
             },
             linkedin: 'https://www.linkedin.com/in/aditya-sharma-3625732a8'
         },
+          {
+            _id: '212',
+            name: 'Chirayu Marathe',
+            council: 'Senior Council',
+            team: 'Tech Mentor',
+            photo: {
+                url: chirayuMarathePhoto
+            },
+            linkedin: 'https://www.linkedin.com/in/chirayu-marathe69/'
+        },
+
 
         {
             _id: '208',
@@ -209,7 +234,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Joint Secretary',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Vaishnavi+Iyer&size=500&background=00629B&color=fff&bold=true'
+                url: vaishnaviIyerPhoto
             },
             linkedin: 'https://www.linkedin.com/in/vaishnavi-iyer-503460350'
         },
@@ -220,7 +245,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Operational Lead',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Taazeen+Ansari&size=500&background=00629B&color=fff&bold=true'
+                url: taazeenAnsariPhoto
             },
             linkedin: 'https://linkedin.com/in/taazeenansari'
         },
@@ -275,7 +300,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Dakshata+Dalvi&size=500&background=00629B&color=fff&bold=true'
+                url: dakshataDalviPhoto
             },
             linkedin: 'https://www.linkedin.com/in/dakshata-dalvi-475864344'
         },
@@ -286,7 +311,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Arya+Muthukrishnan&size=500&background=00629B&color=fff&bold=true'
+                url: aryaMuthukrishnanPhoto
             },
             linkedin: 'https://www.linkedin.com/in/arya-muthukrishnan-pandaram-a2264430a'
         },
@@ -308,7 +333,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Siddharth+Patil&size=500&background=00629B&color=fff&bold=true'
+                url: siddharthPatilPhoto
             },
             linkedin: 'https://www.linkedin.com/in/siddharth-patil-763635426/'
         },
@@ -319,7 +344,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Akilesh+K&size=500&background=00629B&color=fff&bold=true'
+                url: akileshKPhoto
             },
             linkedin: 'https://www.linkedin.com/in/akilesh-kalyanakumar-7901b9255'
         },
@@ -329,7 +354,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Technical Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Anoushka+Rajesh&size=500&background=00629B&color=fff&bold=true'
+                url: anoushkaRajeshPhoto
             },
             linkedin: 'https://www.linkedin.com/in/anoushka-rajesh-181a85422'
         },
@@ -339,7 +364,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Media Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Kaustubh+Bhoir&size=500&background=00629B&color=fff&bold=true'
+                url: kaustubhBhoirPhoto
             },
             linkedin: 'https://www.linkedin.com/in/kaustubh-bhoir-7b5220380'
         },
@@ -372,7 +397,7 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Design Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Trushna+Mhatre&size=500&background=00629B&color=fff&bold=true'
+                url: trushnaMhatrePhoto
             },
             linkedin: 'https://www.linkedin.com/in/trushna-mhatre-88930b354'
         },
@@ -383,19 +408,29 @@ export function teamLoader() {
             council: 'Junior Council',
             team: 'Creative Head',
             photo: {
-                url: 'https://ui-avatars.com/api/?name=Riya+Parab&size=500&background=00629B&color=fff&bold=true'
+                url: riyaParabPhoto
             },
             linkedin: 'https://www.linkedin.com/in/riya-parab-bb712333'
         },
         {
             _id: '121',
-            name: 'Aarya Yewale',
+            name: 'Arpita Mishra',
             council: 'Junior Council',
             team: 'Publicity Head',
             photo: {
-                url: aaryaYewalePhoto
+                url: arpitaMishraPhoto
             },
-            linkedin: 'https://www.linkedin.com/in/aarya-yewale-047032356'
+            linkedin: 'https://www.linkedin.com/in/arpita-mishra-5ab9a43a6'
+        },
+        {
+            _id: '122',
+            name: 'Rushikesh Pawar',
+            council: 'Junior Council',
+            team: 'Publicity Head',
+            photo: {
+                url: rushikeshPawarPhoto
+            },
+            linkedin: 'https://www.linkedin.com/in/rushikesh-pawar-532975213/'
         },
         {
             _id: '120',
@@ -405,7 +440,7 @@ export function teamLoader() {
             photo: {
                 url: neerajDalviPhoto
             },
-            linkedin: ''
+            linkedin: 'https://www.linkedin.com/in/neeraj-dalvi-48564b418/'
         },
         {
             _id: '117',

@@ -12,7 +12,6 @@ const mouseStore = { x: 0, y: 0, worldX: 0, worldY: 0 };
 const StarLayer = ({ count, radius, size, speed, color, glowIntensity = 1 }) => {
   const ref = useRef();
   const [positions] = useState(() => random.inSphere(new Float32Array(count * 3), { radius }));
-  const [originalPositions] = useState(() => [...positions]);
 
   useFrame((state, delta) => {
     if (ref.current) {

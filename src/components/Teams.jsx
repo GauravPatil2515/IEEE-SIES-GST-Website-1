@@ -8,7 +8,8 @@ import TeamSection from "./team";
 const COUNCILS = ["Branch Counselor", "Senior Council", "Junior Council"];
 
 export default function Teams() {
-  const members = useLoaderData() || [];
+  const rawMembers = useLoaderData();
+  const members = useMemo(() => rawMembers || [], [rawMembers]);
   const [selectedCouncil, setSelectedCouncil] = useState("Branch Counselor");
   const [searchQuery, setSearchQuery] = useState("");
 

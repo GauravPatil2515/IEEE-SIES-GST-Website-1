@@ -72,7 +72,13 @@ const TeamMemberCard = React.memo(({ member, index }) => {
               <div className="absolute inset-0 bg-slate-800/50 animate-pulse" />
             )}
             <img
-              className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
+              className={`w-full h-full transition-all duration-500 ${
+                member._id === "121"
+                  ? "object-cover object-[center_18%]"
+                  : member._id === "111"
+                    ? "object-cover object-[center_20%] scale-[0.95] group-hover:scale-100"
+                    : "object-cover object-center group-hover:scale-105"
+              } ${
                 imageLoaded ? "opacity-100" : "opacity-0"
               }`}
               src={member.photo.url}
